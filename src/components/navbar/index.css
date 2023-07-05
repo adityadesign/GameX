@@ -1,0 +1,18 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #0f0f0f;
+}
+
+.logo{
+    font-size: 2rem;
+}
+
+.navbar input{
+    margin-left: auto;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}

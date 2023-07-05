@@ -1,0 +1,28 @@
+.genres{
+  max-width: 200px;
+  min-width: 20vw;
+}
+
+.genreList{
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.genreList img{
+  width: 50px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.genreList div{
+  display: flex;
+  align-items: center;
+}
+
+.genreList:hover{
+  background-color: #39393994;
+  cursor: pointer;
+}

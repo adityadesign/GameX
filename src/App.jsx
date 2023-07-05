@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
-import Read from './components/Read'
+import Navbar from "./components/navbar/Navbar"
+import Home from "./pages/Home"
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <Read />
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+      </Routes>
     </>
   )
 }

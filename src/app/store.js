@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import foodDetail from '../features/foodDetailSlice'
+import gameDetail from '../features/gameSlice'
 
 export const store = configureStore({
   reducer: {
-    app: foodDetail
+    app: gameDetail
   },
 })
