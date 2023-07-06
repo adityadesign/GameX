@@ -1,12 +1,17 @@
 .genres{
-  max-width: 200px;
-  min-width: 20vw;
+  background-color: #0f0f0f;
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  padding: 0 1rem 0.5rem;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
 }
-
 .genreList{
   display: flex;
   gap: 0.6rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   border-radius: 5px;
 }
 
@@ -25,4 +30,17 @@
 .genreList:hover{
   background-color: #39393994;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.genresHead{
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 800px){
+  .genres{
+      width: 350px;
+  }
 }

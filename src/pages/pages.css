@@ -1,3 +1,8 @@
 .home{
     display: flex;
+    justify-content: space-evenly;
+}
+
+.displaySection{
+    padding: 0;
 }

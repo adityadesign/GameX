@@ -13,7 +13,7 @@ const Genres = () => {
     
   return (
     <div className='genres'>
-      <div>Genres</div>
+      <div className='genresHead'>Genres</div>
       {genres && genres.map(item => {
         return (
           <div key={item.id} className='genreList'>

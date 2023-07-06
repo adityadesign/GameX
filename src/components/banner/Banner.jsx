@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllGames } from '../../features/gameSlice'
+import { useSelector } from 'react-redux'
+import './index.css'
 
-const Banner = () => {
-    const dispatch = useDispatch()
-    const banner = useSelector(state => state.app.allGames.results)
+const Banner = (props) => {
     const {loading} = useSelector(state => state.app)
-    
-    useEffect(() => {
-        dispatch(getAllGames())
-    }, [])
-    console.log(banner);
-
     if(loading){
         return (<h2>Loading...</h2>)
     }
-    
     return (
-        <div>
-            banner
+        <div className='bannerComponent'>
+            {props.desired && (
+                <>
+                    <img className='banner' src={props.desired.background_image} alt="" /> 
+                    <div className='image-overlay'></div>
+                    <div className='movieTitle'>{props.desired.name}</div>
+                </>
+            )}
         </div>
     )
 }

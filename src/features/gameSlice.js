@@ -20,13 +20,24 @@ export const getAllGames = createAsyncThunk('getAllGames', async(_, {rejectWithV
     }
 })
 
+export const getGameDescription = createAsyncThunk('getGameDescription', async(id, {rejectWithValue}) => {
+    const response = await fetch(`https://api.rawg.io/api/games/${id}?key=585e1db683b242cabb477ced1f2265bc`)
+      try {
+          const result = await response.json()
+          return result;
+      } catch (error) {
+          return rejectWithValue(error);
+      }
+  })
+
 export const gameDetail = createSlice({
   name: 'gameDetail',
   initialState: {
     genres: [],
     searchGame : [],
     allGames : [],
-    loading: false
+    loading: false,
+    gameDescription: []
   },
   extraReducers: (builder) => {
     builder.addCase(getGenres.pending, (state) => {
@@ -52,6 +63,18 @@ export const gameDetail = createSlice({
         state.loading = false
         state.error = action.payload
     })
+
+    builder.addCase(getGameDescription.pending, (state) => {
+        state.loading = true
+      })
+      builder.addCase(getGameDescription.fulfilled, (state, action) => {
+          state.loading = false
+          state.gameDescription.push(action.payload)
+      })
+      builder.addCase(getGameDescription.rejected, (state, action) => {
+          state.loading = false
+          state.error = action.payload
+      })
     }
 })
 
