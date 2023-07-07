@@ -1,3 +1,5 @@
+@import "react-image-gallery/styles/css/image-gallery.css";
+
 .home{
     display: flex;
     justify-content: space-evenly;
@@ -5,4 +7,70 @@
 
 .displaySection{
     padding: 0;
+}
+
+.image-container{
+    padding: 1rem 0;
+}
+
+.gameDetailSection{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.gameHead{
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+.gameHeadDetails{
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+.leftSection{
+    background-color: #0f0f0f;
+    border-radius: 10px;
+    padding: 1.5rem;
+    max-width: 950px;
+}
+
+.rightSection{
+    display: flex;
+    align-self: flex-start;
+    min-width: 300px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.description{
+    line-height: 1.5;
+}
+
+.ratingHead, .genreHead{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.ratingItem{
+    margin: 1rem 0;
+}
+
+.rating, .genreSection{
+    width: 100%;
+    background-color: #0f0f0f;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.genreDetail{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
 }

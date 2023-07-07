@@ -1,6 +1,5 @@
 import './index.css'
-
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Popular = ({desired}) => {
   return (
@@ -9,14 +8,14 @@ const Popular = ({desired}) => {
         <div className='popularCardsSection'>
             {desired && desired.map(item => {
                 return (
-                    <div className='popularCard' key={item.id}>
+                    <Link className='popularCard' key={item.id} to={`/game/${item.id}`}>
                         <img className='popularImg' src={item.background_image} alt="" />
                         <div>{item.name}</div>
                         <div className='popularDetails'>
                             <span>{item.rating} ({item.ratings_count})</span>
                             <span>Released: {item.released.substring(0,4)}</span>
                         </div>
-                    </div>
+                    </Link>
                 )
             })}
         </div>

@@ -69,7 +69,7 @@ export const gameDetail = createSlice({
       })
       builder.addCase(getGameDescription.fulfilled, (state, action) => {
           state.loading = false
-          state.gameDescription.push(action.payload)
+          state.gameDescription = action.payload
       })
       builder.addCase(getGameDescription.rejected, (state, action) => {
           state.loading = false
