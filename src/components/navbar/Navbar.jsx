@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const Navbar = () => {
-const handleChange = (e) => {
-    console.log(e.target.value);
-}
+  const dispatch = useDispatch()
+  const [searchData, setSearchData] = useState('')
+
+  
 
   return (
     <div className='navbar'>
-        <div className='logo'>GameX</div>
+        <Link to='/' className='logo'>GameX</Link>
         <input type="text" 
-            placeholder='Search Games'
-            onChange={handleChange}
-        />
+          placeholder='Search Games'
+          value={searchData}
+          onChange={e => setSearchData(e.target.value)}
+          />
     </div>
   )
 }

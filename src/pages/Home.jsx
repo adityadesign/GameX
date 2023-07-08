@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Genres from '../components/genres/Genres'
 import Banner from '../components/banner/Banner'
 import './pages.css'
 import Trending from '../components/trending/Trending'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllGames } from '../features/gameSlice'
+import { getAllGames, getGenreGames } from '../features/gameSlice'
 import Popular from '../components/popular/Popular'
 
 const Home = () => {
@@ -13,18 +13,36 @@ const Home = () => {
   const games = useSelector(state => state.app.allGames.results)
   const desiredBanner = games && games.length>0 ? games[rand] : null
   const desired= games && games.length>0 ? games : null
+  const [genreSelected, setGenreSelected] = useState(false)
+  const {genreGames} = useSelector(state => state.app)
+  const {genres} = useSelector((state) => state.app)
+  const genreName = useRef('')
 
   useEffect(() => {
       dispatch(getAllGames())
   }, [])
 
+  const genreClick = (id) => {
+    setGenreSelected(true)
+    dispatch(getGenreGames(id))
+    genreName.current = genres.results.filter(item => item.id === id)[0].name
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className='home'>
-        <Genres />
+        <Genres genreClick={genreClick}/>
         <div className='displaySection'>
-          <Banner desired={desiredBanner}/>
-          <Trending desired={desired}/>
-          <Popular desired={desired}/>
+        {!genreSelected ? 
+          <>
+            <Banner desired={desiredBanner}/>
+            <Trending desired={desired}/>
+            <Popular desired={desired} genreName={genreName} genreSelected={genreSelected}/>
+          </> : 
+          <>
+            <Popular desired={genreGames.results} genreName={genreName.current} genreSelected={genreSelected}/>
+          </>
+        }
         </div>
     </div>
   )

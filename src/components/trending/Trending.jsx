@@ -16,7 +16,7 @@ const Trending = ({desired}) => {
             <div className='trendingLists'>
                 {desired && desired.map((item, index) => index<4 && (
                     <Link className='trendingEach' key={item.id} to={`/game/${item.id}`}>
-                        <img className='trendingImg' src={item.background_image} alt="" />
+                        <img className='trendingImg' src={item.background_image} alt="" loading='lazy'/>
                         <div className='trendingNames'>{item.name}</div>
                     </Link>
                 ))}

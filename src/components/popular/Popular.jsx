@@ -1,21 +1,27 @@
 import './index.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Popular = ({desired}) => {
+const Popular = ({desired, genreSelected, genreName}) => {
+    const navigate = useNavigate()
+
+    const handleClick = (id) => {
+        navigate(`/game/${id}`)
+    }
+
   return (
     <div className='popularSection'>
-        <div className='popularHead'>Popular Games</div>
+        <div className='popularHead'>{genreSelected ? `${genreName}` : 'Popular'} Games</div>
         <div className='popularCardsSection'>
             {desired && desired.map(item => {
                 return (
-                    <Link className='popularCard' key={item.id} to={`/game/${item.id}`}>
-                        <img className='popularImg' src={item.background_image} alt="" />
+                    <div className='popularCard' key={item.id} onClick={() => handleClick(item.id)}>
+                        <img className='popularImg' src={item.background_image} alt="" loading='lazy'/>
                         <div>{item.name}</div>
                         <div className='popularDetails'>
                             <span>{item.rating} ({item.ratings_count})</span>
                             <span>Released: {item.released.substring(0,4)}</span>
                         </div>
-                    </Link>
+                    </div>
                 )
             })}
         </div>

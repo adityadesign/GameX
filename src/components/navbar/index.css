@@ -7,6 +7,8 @@
 
 .logo{
     font-size: 2rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.87);
 }
 
 .navbar input{

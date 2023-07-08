@@ -13,6 +13,7 @@
   gap: 0.6rem;
   padding: 0.5rem 0;
   border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
 .genreList img{
@@ -30,7 +31,7 @@
 .genreList:hover{
   background-color: #39393994;
   cursor: pointer;
-  font-weight: 600;
+  transform: scale(1.05);
 }
 
 .genresHead{
