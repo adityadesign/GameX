@@ -52,3 +52,30 @@
     justify-content: space-between;
     width: 90%;
 }
+
+@media only screen and (max-width: 600px) {
+    .popularHead{
+        font-size: 1.3rem;
+        margin: 1rem 0 2rem;
+    }
+    .popularCard{
+        width: 140px;
+        height: 170px;
+        padding: 0.3rem;
+    }
+    .popularCardsSection{
+        gap: 0.5rem;
+        justify-content: space-around;
+    }
+    .popularSection{
+        margin: 1rem auto;
+        width: 90%;
+    }
+    .popularHead{
+        font-size: 1.3rem;
+    }
+    .popularDetails{
+        font-size: 0.6rem;
+        width: 100%;
+    }
+}

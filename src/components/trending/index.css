@@ -15,9 +15,11 @@
 
 .trendingEach{
     max-width: 220px;
+    min-width: 120px;
+    min-height: 180px;
     max-height: 300px;
-    width: 25vw;
-    height: 300px;
+    width: 30vw;
+    height: 50vw;
     background-color: #0f0f0f;
     border-radius: 10px;
     display: flex;
@@ -55,8 +57,13 @@
     }
 }
 
-/* @media only screen and (max-width: 600px) {
-    .trendingLists{
-        justify-content: space-around;
+@media only screen and (max-width: 600px) {
+    .trendingNames{
+        font-size: 1rem;
+        height: 30%;
     }
-} */
+    .trendingHead{
+        font-size: 1.3rem;
+        margin: 1rem 0 2rem;
+    }
+}
