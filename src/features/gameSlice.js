@@ -67,7 +67,7 @@ export const gameDetail = createSlice({
   reducers: {
     toggleSelect: (state, action) => {
         state.selected = action.payload
-    }
+    },
   },
 
   extraReducers: (builder) => {

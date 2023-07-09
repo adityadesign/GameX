@@ -10,10 +10,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .trendingEach{
-    width: 220px;
+    max-width: 220px;
+    max-height: 300px;
+    width: 25vw;
     height: 300px;
     background-color: #0f0f0f;
     border-radius: 10px;
@@ -45,3 +48,15 @@
     height: 15%;
     color: rgba(255, 255, 255, 0.87);
 }
+
+@media only screen and (max-width: 1000px) {
+    .trendingLists{
+        justify-content: space-around;
+    }
+}
+
+/* @media only screen and (max-width: 600px) {
+    .trendingLists{
+        justify-content: space-around;
+    }
+} */

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGenres } from '../../features/gameSlice'
 import './index.css'
+import { searchflagToggle } from '../../features/searchGame'
 
 const Genres = (props) => {
     const dispatch = useDispatch()
@@ -11,12 +12,17 @@ const Genres = (props) => {
         dispatch(getGenres())
     },[])
 
+    const handleClick = (id) => {
+      props.genreClick(id)
+      dispatch(searchflagToggle(false))
+    }
+
   return (
     <div className='genres'>
       <div className='genresHead'>Genres</div>
       {genres && genres.map(item => {
         return (
-          <div key={item.id} className='genreList' onClick={() => props.genreClick(item.id)}>
+          <div key={item.id} className='genreList' onClick={() => handleClick(item.id)}>
             <img src={item.image_background} alt="" />
             <div>{item.name}</div>
           </div>

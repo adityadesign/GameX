@@ -16,12 +16,13 @@ const Navbar = () => {
       dispatch(toggleSelect(true))
     } else {
       dispatch(searchflagToggle(false))
+      dispatch(toggleSelect(false))
     }
   }
 
   return (
     <div className='navbar'>
-        <Link to='/' className='logo' onClick={() => dispatch(toggleSelect(false))}>GameX</Link>
+        <Link to='/' className='logo' onClick={() => (dispatch(toggleSelect(false)), dispatch(searchflagToggle(false)))}>GameX</Link>
         <input type="text" 
           placeholder='Search Games'
           onChange={handleChange}
