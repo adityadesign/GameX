@@ -50,28 +50,24 @@ export const getScreenshots = createAsyncThunk('getScreenshots', async(id, {reje
     }
 })
 
-export const getSearchMovie = createAsyncThunk('getSearchMovie', async(data, {rejectWithValue}) => {
-    const response = await fetch(`https://api.rawg.io/api/games?search=${data}&key=585e1db683b242cabb477ced1f2265bc`)
-    try{
-        const result = await response.json()
-        return result
-    } catch (error) {
-        return rejectWithValue(error)
-    }
-})
-
 export const gameDetail = createSlice({
   name: 'gameDetail',
   initialState: {
     genres: [],
-    searchGame : [],
     allGames : [],
     loading: false,
     gameDescription: [],
     genreGames: [],
     screenshots: null,
     ratings: null,
-    genresOfSingle: null
+    genresOfSingle: null,
+    selected: false,
+  },
+
+  reducers: {
+    toggleSelect: (state, action) => {
+        state.selected = action.payload
+    }
   },
 
   extraReducers: (builder) => {
@@ -138,19 +134,9 @@ export const gameDetail = createSlice({
         state.loading = false
         state.error = action.payload
     })
-
-    builder.addCase(getSearchMovie.pending, (state) => {
-        state.loading = true
-    })
-    builder.addCase(getSearchMovie.fulfilled, (state, action) => {
-        state.loading = false
-        state.searchGame = action.payload
-    })
-    builder.addCase(getSearchMovie.rejected, (state, action) => {
-        state.loading = false
-        state.error = action.payload
-    })
   }
 })
 
 export default gameDetail.reducer
+
+export const {toggleSelect} = gameDetail.actions

@@ -2,20 +2,29 @@ import React, { useState } from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { toggleSelect } from '../../features/gameSlice'
+import { getSearchMovie, searchflagToggle } from '../../features/searchGame'
+
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const [searchData, setSearchData] = useState('')
 
-  
+  const handleChange = (e) => {
+    dispatch(getSearchMovie(e.target.value))
+    if(e.target.value.length>0){
+      dispatch(searchflagToggle(true))
+      dispatch(toggleSelect(true))
+    } else {
+      dispatch(searchflagToggle(false))
+    }
+  }
 
   return (
     <div className='navbar'>
-        <Link to='/' className='logo'>GameX</Link>
+        <Link to='/' className='logo' onClick={() => dispatch(toggleSelect(false))}>GameX</Link>
         <input type="text" 
           placeholder='Search Games'
-          value={searchData}
-          onChange={e => setSearchData(e.target.value)}
+          onChange={handleChange}
           />
     </div>
   )

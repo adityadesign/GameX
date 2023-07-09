@@ -4,7 +4,7 @@ import Banner from '../components/banner/Banner'
 import './pages.css'
 import Trending from '../components/trending/Trending'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllGames, getGenreGames } from '../features/gameSlice'
+import { getAllGames, getGenreGames, toggleSelect } from '../features/gameSlice'
 import Popular from '../components/popular/Popular'
 
 const Home = () => {
@@ -12,10 +12,10 @@ const Home = () => {
   const rand = Math.floor(Math.random()*20)
   const games = useSelector(state => state.app.allGames.results)
   const desiredBanner = games && games.length>0 ? games[rand] : null
-  const desired= games && games.length>0 ? games : null
-  const [genreSelected, setGenreSelected] = useState(false)
-  const {genreGames} = useSelector(state => state.app)
-  const {genres} = useSelector((state) => state.app)
+  const {searchflag, searchGame} = useSelector(state => state.search)
+  const trending = games && games.length>0 ? games : null
+  const desired= searchflag ? searchGame : (games && games.length>0 ? games : null)
+  const {genreGames, genres, selected} = useSelector(state => state.app)
   const genreName = useRef('')
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
   }, [])
 
   const genreClick = (id) => {
-    setGenreSelected(true)
+    dispatch(toggleSelect(true))
     dispatch(getGenreGames(id))
     genreName.current = genres.results.filter(item => item.id === id)[0].name
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -33,14 +33,17 @@ const Home = () => {
     <div className='home'>
         <Genres genreClick={genreClick}/>
         <div className='displaySection'>
-        {!genreSelected ? 
+        {!selected ? 
           <>
             <Banner desired={desiredBanner}/>
-            <Trending desired={desired}/>
-            <Popular desired={desired} genreName={genreName} genreSelected={genreSelected}/>
+            <Trending desired={trending}/>
+            <Popular desired={desired} genreName={genreName} selected={selected}/>
           </> : 
           <>
-            <Popular desired={genreGames.results} genreName={genreName.current} genreSelected={genreSelected}/>
+          {searchflag ? 
+            <Popular desired={desired} genreName={genreName.current} selected={selected}/> :
+            <Popular desired={genreGames.results} genreName={genreName.current} selected={selected}/>
+          }
           </>
         }
         </div>
