@@ -22,5 +22,7 @@
 @media only screen and (max-width: 600px) {
     .navbar input{
         width: 30vw;
+        font-size: 0.8rem;
+        padding: 0.4rem;
     }
 }

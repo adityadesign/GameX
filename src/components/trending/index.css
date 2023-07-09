@@ -9,7 +9,7 @@
 .trendingLists{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
 }
 
@@ -64,6 +64,21 @@
     }
     .trendingHead{
         font-size: 1.3rem;
-        margin: 1rem 0 2rem;
+        margin: 2rem 0 1rem;
+    }
+    .trendingSection{
+        margin: 1rem auto;
+        width: 95%;
+    }
+    .trendingLists{
+        gap: 0.5rem;
+    }
+    .trendingEach{
+        max-width: 300px;
+        min-width: 120px;
+        min-height: 180px;
+        max-height: 300px;
+        width: 48%;
+        height: 50vw;
     }
 }
