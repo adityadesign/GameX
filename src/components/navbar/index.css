@@ -21,6 +21,6 @@
 
 @media only screen and (max-width: 600px) {
     .navbar input{
-        width: 150px;
+        width: 30vw;
     }
 }

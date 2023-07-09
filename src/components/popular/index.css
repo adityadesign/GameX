@@ -56,12 +56,12 @@
 @media only screen and (max-width: 600px) {
     .popularHead{
         font-size: 1.3rem;
-        margin: 1rem 0 2rem;
+        margin: 2rem 0 1rem;
     }
     .popularCard{
-        width: 140px;
+        width: 48%;
         height: 170px;
-        padding: 0.3rem;
+        padding: 0.5rem;
     }
     .popularCardsSection{
         gap: 0.5rem;
@@ -69,13 +69,22 @@
     }
     .popularSection{
         margin: 1rem auto;
-        width: 90%;
+        width: 95%;
     }
     .popularHead{
         font-size: 1.3rem;
     }
     .popularDetails{
-        font-size: 0.6rem;
+        font-size: 0.65rem;
         width: 100%;
+    }
+    .popularImg{
+        width: 95%;
+        height: 65%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .popularGameName{
+        font-size: 0.9rem;
     }
 }
