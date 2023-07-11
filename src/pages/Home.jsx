@@ -17,6 +17,7 @@ const Home = () => {
   const desired= searchflag ? searchGame : (games && games.length>0 ? games : null)
   const {genreGames, genres, selected} = useSelector(state => state.app)
   const genreName = useRef('')
+  const displayInHamburgerMenu = window.innerWidth <= 1000;
 
   useEffect(() => {
       dispatch(getAllGames())
@@ -31,7 +32,7 @@ const Home = () => {
 
   return (
     <div className='home'>
-        <Genres genreClick={genreClick}/>
+        {displayInHamburgerMenu ? "" : <Genres genreClick={genreClick}/>}
         <div className='displaySection'>
         {!selected ? 
           <>

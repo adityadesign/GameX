@@ -53,6 +53,23 @@
     width: 90%;
 }
 
+@media only screen and (max-width: 1000px) {
+    .popularSection{
+        margin: 1rem auto;
+        width: 90%;
+    }
+    .popularCard{
+        width: 48%;
+        margin: 0 auto;
+        height: 30vw;
+        padding: 0.5rem;
+    }
+    .popularImg{
+        width: 90%;
+        height: 65%;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .popularHead{
         font-size: 1.3rem;
@@ -68,11 +85,10 @@
         justify-content: space-around;
     }
     .popularSection{
-        margin: 1rem auto;
         width: 95%;
     }
     .popularHead{
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     .popularDetails{
         font-size: 0.65rem;
@@ -81,8 +97,6 @@
     .popularImg{
         width: 95%;
         height: 65%;
-        object-fit: cover;
-        border-radius: 10px;
     }
     .popularGameName{
         font-size: 0.9rem;
