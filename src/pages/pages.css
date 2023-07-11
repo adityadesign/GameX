@@ -35,12 +35,13 @@
     border-radius: 10px;
     padding: 1.5rem;
     max-width: 950px;
+    min-width: 75%;
 }
 
 .rightSection{
     display: flex;
     align-self: flex-start;
-    min-width: 300px;
+    min-width: 25%;
     max-width: 350px;
     display: flex;
     flex-direction: column;
@@ -75,8 +76,18 @@
     font-size: 1.1rem;
 }
 
-/* @media only screen and (max-width: 1000px) {
-    .home{
-
+@media only screen and (max-width: 600px) {
+    .gameDetailSection{
+        flex-direction: column;
+        margin: 1rem;
     }
-} */
+    .rightSection{
+        flex-direction: row;
+        min-width: 100%;
+    }
+    .genreSection{
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
+}

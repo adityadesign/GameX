@@ -38,10 +38,6 @@
         position: relative;
       }
       
-      .bm-item:hover {
-        color: white;
-      }
-      
       .bm-burger-button {
         display:block;
         position: relative;
@@ -51,7 +47,7 @@
       
       /* Color/shape of burger icon bars */
       .bm-burger-bars {
-        background: #373a47;
+        background: #dadce4;
       }
       
       /* Position and sizing of clickable cross button */
