@@ -14,7 +14,7 @@
 }
 
 .gameDetailSection{
-    margin: 2rem;
+    margin:  1rem 2rem 2rem;
     display: flex;
     justify-content: space-evenly;
     gap: 1rem;
@@ -76,6 +76,15 @@
     font-size: 1.1rem;
 }
 
+.back{
+    background-color: #0f0f0f;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1rem 0 0 1.5rem;
+}
+
 @media only screen and (max-width: 600px) {
     .gameDetailSection{
         flex-direction: column;
@@ -84,10 +93,27 @@
     .rightSection{
         flex-direction: row;
         min-width: 100%;
+        flex-wrap: wrap;
     }
     .genreSection{
         display: flex;
         flex-direction: column;
         align-self: flex-start;
+    }
+    .description, .genreDetail, .ratingItem, .gameHeadDetails{
+        font-size: 0.8rem;
+    }
+    .ratingHead, .genreHead{
+        font-size: 1.1rem;
+    }
+    .gameHead{
+        font-size: 1.5rem;
+    }
+    .rating, .genreSection{
+        min-width: 150px;
+        max-width: 100%;
+    }
+    .back{
+        margin-left: 1rem;
     }
 }

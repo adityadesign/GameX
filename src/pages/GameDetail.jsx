@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getGameDescription, getScreenshots } from '../features/gameSlice'
 import ImageGallery from 'react-image-gallery';
 import './pages.css'
@@ -10,6 +10,7 @@ const GameDetail = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
     const {loading, gameDescription, screenshots, ratings, genresOfSingle} = useSelector(state => state.app)
+    const navigate = useNavigate()
    
     useEffect(() => {
         dispatch(getGameDescription(id))
@@ -21,6 +22,8 @@ const GameDetail = () => {
     }
 
   return (
+    <>
+    <div className='back' onClick={() => navigate('/')}>Back</div>
     <div className='gameDetailSection'>
         <div className='leftSection'>
             {gameDescription && 
@@ -62,6 +65,7 @@ const GameDetail = () => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
