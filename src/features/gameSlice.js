@@ -62,11 +62,15 @@ export const gameDetail = createSlice({
     ratings: null,
     genresOfSingle: null,
     selected: false,
+    genreSelected: null
   },
 
   reducers: {
     toggleSelect: (state, action) => {
         state.selected = action.payload
+    },
+    toggleGenreSelect: (state, action) => {
+        state.genreSelected = action.payload
     },
   },
 
@@ -139,4 +143,4 @@ export const gameDetail = createSlice({
 
 export default gameDetail.reducer
 
-export const {toggleSelect} = gameDetail.actions
+export const {toggleSelect, toggleGenreSelect} = gameDetail.actions

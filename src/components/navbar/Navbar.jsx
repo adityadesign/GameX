@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './index.css'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { getGenreGames, toggleSelect } from '../../features/gameSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { getGenreGames, toggleGenreSelect, toggleSelect } from '../../features/gameSlice'
 import { getSearchMovie, searchflagToggle } from '../../features/searchGame'
 import Genres from '../genres/Genres'
 import { slide as Menu } from 'react-burger-menu'
@@ -10,6 +10,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const {genreSelected} = useSelector(state => state.app)
 
   const handleChange = (e) => {
     dispatch(getSearchMovie(e.target.value))
@@ -26,7 +27,6 @@ const Navbar = () => {
     dispatch(toggleSelect(true))
     dispatch(getGenreGames(id))
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    dispatch(searchflagToggle(false))
   }
 
   return (
@@ -37,7 +37,7 @@ const Navbar = () => {
           onChange={handleChange}
           />
         <div className='hamburger' id="outer-container">
-          <Menu id="menuToggle" pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right>
+          <Menu id="menuToggle" pageWrapId={ "page-wrap" } isOpen={genreSelected} outerContainerId={ "outer-container" } right>
             <Genres genreClick={genreClick}/>
           </Menu>
           <div id="page-wrap" className='hamburgerIcon'></div>

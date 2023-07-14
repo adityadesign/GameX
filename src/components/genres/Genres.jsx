@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenres } from '../../features/gameSlice'
+import { getGenres, toggleGenreSelect } from '../../features/gameSlice'
 import './index.css'
 import { searchflagToggle } from '../../features/searchGame'
 
@@ -15,6 +15,7 @@ const Genres = (props) => {
     const handleClick = (id) => {
       props.genreClick(id)
       dispatch(searchflagToggle(false))
+      dispatch(toggleGenreSelect(false))
     }
 
   return (
