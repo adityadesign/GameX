@@ -13,6 +13,7 @@ const Popular = ({desired, selected, genreName}) => {
   return (
     <div className='popularSection'>
         <div className='popularHead'>{searchflag ? 'Searched' : (selected ? `${genreName}` : 'Popular')} Games</div>
+        {searchflag && <div>Filter:</div>}
         <div className='popularCardsSection'>
             {desired && desired.map(item => {
                 return (

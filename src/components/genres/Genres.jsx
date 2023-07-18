@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenres, toggleGenreSelect } from '../../features/gameSlice'
+import { getGenres, toggleGenreSelect, toggleSelect } from '../../features/gameSlice'
 import './index.css'
 import { searchflagToggle } from '../../features/searchGame'
+import { useNavigate } from 'react-router-dom'
 
 const Genres = (props) => {
     const dispatch = useDispatch()
     const genres = useSelector((state) => state.app.genres.results)
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(getGenres())
@@ -16,6 +18,8 @@ const Genres = (props) => {
       props.genreClick(id)
       dispatch(searchflagToggle(false))
       dispatch(toggleGenreSelect(false))
+      dispatch(toggleSelect(true))
+      navigate('/')
     }
 
   return (
